@@ -24,11 +24,7 @@ Mac用户可以看下网络教程。
 clone代码
 
 ``` git
-git clone git@192.168.40.112:web/boc.libaoxu.cn.git
-
-git submodule init && git submodule update
-
-cd build && git checkout master && git pull origin master && cd ../
+git clone git@github.com:libaoxu/react-cli.git
 
 ```
 ## 安装node
@@ -42,10 +38,10 @@ node 在Windows下面 可能需要配置一下变量环境。
 ## Build Setup
 
 ``` bash
-# install dependencies(安装以来)
+# install dependencies(安装依赖)
 npm install
 
-# serve with hot reload at localhost:8080(开发环境)
+# serve with hot reload at localhost:8082(开发环境)
 npm run dev
 
 # build for production with minification(生产打包)
