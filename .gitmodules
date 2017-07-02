@@ -1,3 +1,0 @@
-[submodule "build"]
-	path = build
-	url = git@192.168.40.112:web/boc-libaoxu-build.git

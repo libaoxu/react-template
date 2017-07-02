@@ -137,11 +137,11 @@ git tag v时间(精确到分)_业务名
 		缺点: 不支持style scoped
 		弥补方式: 组件css命名方式采用按照下面命名空间的逻辑
 
-	store/ vuex相关, 具体规范请参考目录: src/pages/demo/store
+	store/  reducer初始化, 
 
-	router/ vue-router相关, 具体规范请参考目录: src/pages/demo/store
-		
-	views.js 所有entry页面的配置
+	router/ reactrouter相关,
+
+	dev-views.js 所有entry页面的配置
 
 - .eslintrc.js, 在本地服务构建之前,进行预解析并进行代码检查, 规范代码书写, 参考[代码规范](http://eslint.org/docs/rules/)
 
@@ -150,110 +150,6 @@ git tag v时间(精确到分)_业务名
 
 ### 代码示例：
 
-##### 基础组件示例
-``` javascript
-/**
- * 注意:
- * 自定义事件 一定要在顶部申明, 加上详细注释, 包括事件类型, 传递参数, 参数类型, 参数状态等
- */
-const events = {
-  CLICK: 'click'
-}
-
-/**
- * 注意:
- * 自定义组件 一定要在顶部申明, 加上详细注释, 包括事件类型, 传递参数, 参数类型, 参数状态等
- * 
- * button组件
- * @module components/button
- * @desc 按钮
- * @param {String} [type=default] - 显示类型, 接收 default, primary, danger
- * @param {Boolean} [disbale=false] - 禁用
- * @param {String} [size=large] - 尺寸, 接收 normal, small, large
- * 
- * @example
- * <button @click="clickHandle" size="large" type="primary">按钮</button>
- */
-const props = {
-	disable: Boolean,
-	size: {
-		type: String,
-		default: 'normal'
-	},
-	type: {
-		type: String,
-		default: 'default'
-	}
-}
-```
-
-##### 组件页面示例
-
-``` javascript
-/**
- * 注意:
- * 基础组件css命名空间为 c-
- * 
- * 外层容器样式命名 c-文件名
- * 子元素样式命名 c-文件名-样式名
- * 条件样式命名 c-文件名--样式名
- */
-
-<a
-	class="c-button"
-	:class="[
-		`c-button--${type}`,
-		`c-button--${size}`,
-		{
-			'c-button-disabled': disabled,
-			'c-button-plain': plain
-		}
-	]"
->
-	<text 
-		class="c-button-text"
-		:class="[`c-button-${type}-text`]"
-	>
-		<slot></slot>
-	</text>
-</a>
-```
-
-##### 业务逻辑页面
-
-``` javascript
-/**
- * 注意:
- * 
- * 子组件引用和其他引用换行
- * 基础组件用c+文件名命名
- * 基础模块用m+文件名命名
- * 页面子模块用p+文件名命名
- * 如果没有用vuex或者redux 页面状态统一入口在父组件, 并加上注释
- */
-import cWrap from 'components/wrap'
-import mContainer from 'modules/container'
-import pNotice from './notice'
-
-export default {
-	components: {
-		cWrap, mContainer, pNotice
-	},
-
-	data () {
-		return {
-			// 用户信息
-			user: {},
-
-			// 获取本周以上数据
-			weekScore: {},
-
-			// 广播显示文案
-			broadcastText: {}
-		}
-	}
-}
-```
 
 具体页面代码示例：
 
