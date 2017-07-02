@@ -70,7 +70,6 @@ var htmlGenerator = function (update) {
 		var conf = {
 			// html 文件也加戳, 防止缓存
 			filename: curkey + '.html?v=' + new Date().getTime(),
-			// 如果'./entry.ejs' 会找/Users/zhao/bao/work/aixuexi/aixuexi-front/entry.ejs
 			template: path.join(__dirname, './entry.ejs'),
 			inject: true,
 			chunks: [curkey, 'vendor', 'common',, 'lib', 'manifest'],

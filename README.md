@@ -76,14 +76,14 @@ git tag v时间(精确到分)_业务名
 
 	文件(文件夹)名单词间隔用“-”隔开，不要采用大小写（因为windows路径不识别大小写）
 
-	例如：item-scroll.jsx、inner-top.vue、class-list/
+	例如：item-scroll.jsx、inner-top.jsx、class-list/
 
 ### 文件目录说明：
 
 - build 构建层
 	dev 开发环境, 
 		支持本地跨域代理接口, 热重载, 支持es6语法, 整合static目录
-		vue文件解析, 并支持jsx 进行 render
+		jsx文件解析, 并支持jsx 进行 render
 		使用less|postcss 对css预处理, 通过postcss-px2rem 自动将px转为rem, 引入flexiable.js 更改dpr兼容不同机型
 
 	prod 生产环境, 自动打包构建成静态文件
@@ -118,7 +118,7 @@ git tag v时间(精确到分)_业务名
 		variable.less: 变量
 		animate.less: 动画
 
-	entry/ vue功能页面的公共入口, 一切从entry开始, 包括实例化Vue对象, 初始化微信, 初始化客户端按钮, 初始化service, 初始化用户信息等等操作
+	entry/ 功能页面的公共入口, 一切从entry开始, 包reactdom 初始化微信, 初始化客户端按钮, 初始化service, 初始化用户信息等等操作
 
 - mock层, 模拟数据
 
@@ -130,10 +130,10 @@ git tag v时间(精确到分)_业务名
 
 - pages/ 页面存放目录, 主要针对业务层逻辑，
 
-	*1. 说明：每个大的页面尽量拆分子模块，子模块存放到自己页面的文件夹下，例如：pages/index/top.vue、pages/index/body.vue、pages/index/.vue
+	*1. 说明：每个大的页面尽量拆分子模块，子模块存放到自己页面的文件夹下，例如：pages/index/top.jsx、pages/index/body.jsx、pages/index/.jsx
 
-	*2. 目前单个vue文件支持 style, 但是vue-style-loader 和postcss-px2rem插件, 会把字体等不需要打包为rem的属性重新编译为rem, 影响我们字体不变异rem的目的
-		使用方式 vue文件同级新建一个 .less文件, script标签里引入
+	*2. 目前单个jsx文件支持 style, 但是jsx-style-loader 和postcss-px2rem插件, 会把字体等不需要打包为rem的属性重新编译为rem, 影响我们字体不变异rem的目的
+		使用方式 jsx文件同级新建一个 .less文件, script标签里引入
 		缺点: 不支持style scoped
 		弥补方式: 组件css命名方式采用按照下面命名空间的逻辑
 

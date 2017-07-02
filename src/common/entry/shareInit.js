@@ -7,10 +7,10 @@ import $bridge from 'bridge'
 import user from 'user'
 
 const _shareOpts = {
-  title: '上映客 直播我',
-  desc: '映客直播，实时、高清、快捷、流畅的视频直播平台，中国全新的视频社交媒体，明星大咖、网络红人、时尚娱乐、视频交友、高颜值等尽在映客直播app。',
-  imgUrl: 'http://img2.libaoxu.cn/MTQ4NzE2NjY1Mzc4OSMxNDYjanBn.jpg',
-  link: 'https://3g.libaoxu.cn'
+  title: 'title',
+  desc: 'desc',
+  imgUrl: '',
+  link: 'https://github.com/libaoxu'
 }
 
 const shareMap = {
