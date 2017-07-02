@@ -1,0 +1,189 @@
+/*
+  页面基础样式相关的标签和类名
+  类名统一命名空间 .base-
+  @author libx@libaoxu.com 2017-05-24
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 16px; /*no*/
+	font: inherit;
+	vertical-align: baseline;
+}
+button, input {
+  font-family: "微软雅黑", "Microsoft Yahei", sans-serif, "Helvetica Neue", Helvetica, STHeiTi;
+}
+/* 
+  HTML5 重置
+*/
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+  vertical-align: top;
+  object-fit: cover;
+}
+
+
+/*
+  基础重写
+*/
+html {
+  font-size: 37.5px; /*no*/
+  min-height: 100%;
+
+  /* 解决最小字体方案 */
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+
+  /*解决移动端点击会有一闪的状态*/
+  -webkit-tap-highlight-color: transparent;
+     -moz-tap-highlight-color: transparent;
+      -ms-tap-highlight-color: transparent;
+       -o-tap-highlight-color: transparent;
+          tap-highlight-color: transparent;
+
+}
+
+body{
+  font-size: 14px;
+  min-height: 100%;
+  font-family: "微软雅黑", Microsoft YaHei, sans-serif, Source Sans Pro, Helvetica, "Helvetica Neue", STHeiTi;
+  /* 禁止选中文本（如无文本选中需求，此为必选项） 
+  -webkit-user-select: none;   
+  user-select: none;*/
+
+  -webkit-overflow-scrolling: touch;
+}
+
+input,
+select,
+button,
+textarea {
+  margin: 0;
+  padding: 0;
+	-webkit-appearance: none;
+      -moz-appearance: none;
+       -ms-appearance: none;
+        -o-appearance: none;
+           appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+button::focus {
+  outline: none;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+  color: #e9eaee; 
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+  color: #e9eaee; 
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+  color: #e9eaee; 
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+  color: #e9eaee; 
+} 
+input::input-placeholder { /* Internet Explorer 10+ */ 
+  color: #e9eaee; 
+}
+
+/* 清楚表单自动填充之后出现的背景黄色 */
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-box-shadow: 0 0 0 999px #fff inset; 
+          box-shadow: 0 0 0 999px #fff inset; 
+}
+
+/*
+  ui
+*/
+img {
+  width: 100%;
+  height: auto;
+}
+.show-important {
+  display: block !important;
+}
+.hide-important {
+  display: none !important;
+}
+.clearfix {
+  *zoom: 1;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+/*单行样式溢出*/
+.base-text-over {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 词内断句 */
+.base-break-text {
+  word-wrap: break-word;
+  word-break: break-all;
+}

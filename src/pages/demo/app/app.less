@@ -1,0 +1,42 @@
+@import '~common/less/variable.less';
+@import '~common/less/common.less';
+
+.app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: @var-theme-color;
+  margin-top: 120px;
+
+  font-size: 36px; /*px*/
+
+  img {
+    width: auto;
+  }
+
+  @bottom: bottom;
+  @width: 1px;
+  @color: #E4E4E4;
+
+  .box-outer {
+    .com-border-mixin(left, @var-theme-color);
+    .com-border-mixin(bottom, @var-theme-color);
+
+  }
+
+  .box {
+    color: @var-gray-color;
+    .com-border-mixin(top, @var-theme-color);
+    .com-border-mixin(right, @var-theme-color);
+
+    transition: translate .3s ease;
+    transform: translate(0, 0);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .border-test {
+    border: 1px solid @var-theme-color; /*no*/
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv=x-dns-prefetch-control content=on>
+    <link rel=dns-prefetch href=//libaoxu.github.io>
+    <link rel=dns-prefetch href=//unpkg.com>
+    <meta name="renderer" content="webkit">
+    <meta name="applicable-device" content="pc">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="application-name" content="<%= htmlWebpackPlugin.options.params.kewords %>">
+    <meta name="renderer" content="webkit">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="<%- htmlWebpackPlugin.options.params.onlineConfig.assetsPublicPath %>static/img/favicon-github.ico">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.params.keywords %>">
+    <meta name="description" content="<%= htmlWebpackPlugin.options.params.description %>">
+    <title><%= htmlWebpackPlugin.options.params.title %></title>
+    <script>
+      // 高清方案js
+      (function(g){var d=g;var h=g.lib||(g.lib={});var e=h.flexible||(h.flexible={});var x=d.document;var c=x.documentElement;var s=x.querySelector('meta[name="viewport"]');var t=x.querySelector('meta[name="flexible"]');var a=0;var w=0;var r;if(s){var f=s.getAttribute("content").match(/initial\-scale=([\d\.]+)/);if(f){w=parseFloat(f[1]);a=parseInt(1/w)}}else{if(t){var o=t.getAttribute("content");if(o){var v=o.match(/initial\-dpr=([\d\.]+)/);var k=o.match(/maximum\-dpr=([\d\.]+)/);if(v){a=parseFloat(v[1]);w=parseFloat((1/a).toFixed(2))}if(k){a=parseFloat(k[1]);w=parseFloat((1/a).toFixed(2))}}}}if(!a&&!w){var q=navigator.userAgent;var b=q.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);var m=q.match(/U3\/((\d+|\.){5,})/i);var u=m&&parseInt(m[1].split(".").join(""),10)>=80;var n=navigator.appVersion.match(/(iphone|ipad|ipod)/gi);var p=d.devicePixelRatio;if(!n&&!(b&&b[1]>534)&&!u){a=1}else{if(p>=3&&(!a||a>=3)){a=3}else{if(p>=2&&(!a||a>=2)){a=2}else{a=1}}}w=1/a}c.setAttribute("data-dpr",a);if(!s){s=x.createElement("meta");s.setAttribute("name","viewport");s.setAttribute("content","initial-scale="+w+", maximum-scale="+w+", minimum-scale="+w+", user-scalable=no");if(c.firstElementChild){c.firstElementChild.appendChild(s)}else{var i=x.createElement("div");i.appendChild(s);x.write(i.innerHTML)}}var l=function(){var y=c.getBoundingClientRect().width;if(g.screen.width===y){y=y*a}var z=y/10;c.style.fontSize=z+"px";e.rem=z};var j=function(){if(requestAnimationFrame){requestAnimationFrame(l)}else{setTimeout(l,150)}};d.addEventListener("resize",j,false);d.addEventListener("pageshow",function(y){if(y.persisted){j()}},false);l();e.dpr=a;e.refreshRem=l;e.rem2px=function(z){var y=parseFloat(z)*this.rem;if(typeof z==="string"&&z.match(/rem$/)){y+="px"}return y};e.px2rem=function(z){var y=parseFloat(z)/this.rem;if(typeof z==="string"&&z.match(/px$/)){y+="rem"}return y}})(window);
+    </script>
+    <script>
+      var __checkLogin__ = <%- htmlWebpackPlugin.options.params.checkoutLogin || false %>;
+    </script>
+  </head>
+  <body>
+    <div id="app">
+    </div>
+
+    <% if (htmlWebpackPlugin.options.params.env === 'production') {%>
+      
+    <%} else {%>
+      
+    <% } %>
+
+    <script src="<%- htmlWebpackPlugin.options.params.onlineConfig.assetsPublicPath %>static/dll/vendor.dll.js"></script>
+
+    <% if (htmlWebpackPlugin.options.params.isWeixin) {%>
+      <% if (htmlWebpackPlugin.options.params.env === 'production') {%>
+        <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+      <%} else {%>
+        <!-- 本地开发, 加载更快 -->
+        <script src="<%- htmlWebpackPlugin.options.params.onlineConfig.assetsPublicPath %>static/lib/jweixin-1.0.0.js"></script>
+      <% } %>
+    <% } %>
+   
+  </body>
+</html>
