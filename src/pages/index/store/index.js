@@ -6,12 +6,12 @@ import shoppingCartReducers from '../app/shopping-cart/reducers'
 import todoListReducers from '../app/todo-list/reducers'
 
 import { createLogger } from 'redux-logger'
-import thunk from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk'
 
-const middleware = [ thunk ];
+const middlewareList = [ thunkMiddleware ];
 
 if (process.env.NODE_ENV !== 'production') {
-  // middleware.push(createLogger());
+  // middlewareList.push(createLogger());
 }
 
 const rootReducer = combineReducers({
@@ -20,14 +20,10 @@ const rootReducer = combineReducers({
   ...todoListReducers
 })
 
-const __store__ = createStore(
+export default createStore(
   rootReducer,
   composeWithDevTools(
-    applyMiddleware(...middleware)
+    applyMiddleware(...middlewareList)
   )
   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
-
-window.__store__ = __store__
-
-export default __store__

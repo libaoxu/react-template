@@ -17,6 +17,11 @@ const Cart  = ({ products, total, onCheckoutClicked, onDecreaseFromCartClicked, 
           key={product.id}
         />
         <button
+          style={{
+            'background-color': 'rgba(255,73,73,.1)',
+            'border-color': 'rgba(255,73,73,.1)',
+            'color': '#ff4949'
+          }}
           className="dec"
           // onClick={() => onDecreaseFromCartClicked(product.id)}
           onClick={() => decreaseFromCart(product.id)}
@@ -34,7 +39,12 @@ const Cart  = ({ products, total, onCheckoutClicked, onDecreaseFromCartClicked, 
       <h3>Your Cart</h3>
       <div>{nodes}</div>
       <p>Total: &#36;{total}</p>
-      <button onClick={onCheckoutClicked}
+      <button style={{
+        'border-color': '#13ce66',
+        'background-color': '#13ce66',
+        'color': '#fff'
+      }} 
+        onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
         Checkout
       </button>
