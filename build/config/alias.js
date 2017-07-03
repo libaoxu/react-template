@@ -34,7 +34,8 @@ var isDev = process.env.NODE_ENV !== 'production'
 
 module.exports = function (srcConfig) {
   var srcAlias = srcConfig.ALIAS || {}
-  
+  var debugs = srcConfig.debugs
+
   return {
     'vue$': 'vue/dist/vue.esm.js',
     'src': path.resolve(SRC_RELATIVE_PATH),
@@ -82,7 +83,10 @@ module.exports = function (srcConfig) {
     // pc端 ui 主题色
     "iview-theme": path.resolve(SRC_RELATIVE_PATH, 'common/element/iview-theme'),
     // 具体实现组件, 按需引用时候用
-    "iview-ui": path.resolve(SRC_RELATIVE_PATH, 'common/element/iview/src/components')
+    "iview-ui": path.resolve(SRC_RELATIVE_PATH, 'common/element/iview/src/components'),
+    // handle debugs for source code
+    'redux': debugs.redux ?  path.resolve(SRC_RELATIVE_PATH, 'debug/redux') : 'redux',
+    'react-redux': debugs['react-redux'] ?  path.resolve(SRC_RELATIVE_PATH, 'debug/react-redux') : 'react-redux'
   }
 
 }

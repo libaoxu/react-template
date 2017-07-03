@@ -80,7 +80,12 @@ const CONFIG = {
   /**
    * 端口
    */
-  PORT: 8082
+  PORT: 8082,
+
+  debugs: {
+    'redux': false,
+    'react-redux': false
+  }
 
 }
 
