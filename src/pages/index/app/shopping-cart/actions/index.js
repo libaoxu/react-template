@@ -9,7 +9,7 @@ const receiveProducts = products => ({
 // 异步的 Redux Thunk来解决的这个问题
 // 如果返回的是函数, 那么就会调用这个函数, 传递过去dispatch 这个方法, 直到这个方法被执行
 export const getAllProducts = () => dispatch => {
-  console.log('dispatch: ', dispatch)
+  // console.log('getAllProducts: dispatch: ', dispatch)
   shop.getProducts(products => {
     setTimeout(() => {
       dispatch(receiveProducts(products))
@@ -49,10 +49,21 @@ export const checkout = products => (dispatch, getState) => {
   })
   shop.buyProducts(products, () => {
     dispatch({
-      type: types.CHECKOUT_SUCCESS,
+      // type: types.CHECKOUT_SUCCESS,
+      type: types.CHECKOUT_FAILURE,
       cart
     })
     // Replace the line above with line below to rollback on failure:
     // dispatch({ type: types.CHECKOUT_FAILURE, cart })
+  })
+}
+
+export const decreaseFromCart = productId => (dispatch, getState) => {
+  // debugger
+  const { cart } = getState()
+  dispatch({
+    type: types.DECREASE_FROM_CART,
+    productId,
+    cart
   })
 }
