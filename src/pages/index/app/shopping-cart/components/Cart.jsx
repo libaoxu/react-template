@@ -1,9 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { decreaseFromCart } from '../actions'
 import PropTypes from 'prop-types'
 import Product from './Product'
 
-const Cart  = ({ products, total, onCheckoutClicked, onDecreaseFromCartClicked }) => {
+const Cart  = ({ products, total, onCheckoutClicked, onDecreaseFromCartClicked, dispatch, decreaseFromCart }) => {
   const hasProducts = products.length > 0
+  // console.log(dispatch)
   const nodes = hasProducts ? (
     products.map(product => 
       <div>
@@ -15,7 +18,8 @@ const Cart  = ({ products, total, onCheckoutClicked, onDecreaseFromCartClicked }
         />
         <button
           className="dec"
-          onClick={() => onDecreaseFromCartClicked(product.id)}
+          // onClick={() => onDecreaseFromCartClicked(product.id)}
+          onClick={() => decreaseFromCart(product.id)}
           disabled={product.quantity > 0 ? '' : 'disabled'}>
           {product.quantity > 0 ? 'decrease' : 'none'}
         </button>
@@ -44,4 +48,6 @@ Cart.propTypes = {
   onCheckoutClicked: PropTypes.func
 }
 
-export default Cart
+
+// export default connect()(Cart)
+export default connect(null, { decreaseFromCart })(Cart)
