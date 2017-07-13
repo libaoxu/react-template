@@ -64,6 +64,7 @@ const visibleIds = (state = initialState.visibleIds, action) => {
   // console.log('visibleIds state: ', state, action)
   switch (action.type) {
     case RECEIVE_PRODUCTS:
+      // debugger
       return action.products.map(product => product.id)
     default:
       return state

@@ -77,16 +77,10 @@ module.exports = function (srcConfig) {
     'bridge': path.resolve(SRC_RELATIVE_PATH, 'common/bridge'),
     // element ui框架
     "element": path.resolve(SRC_RELATIVE_PATH, 'common/element'),
-    "mint-ui": path.resolve(SRC_RELATIVE_PATH, 'common/element/mint-ui'),
-    // talking-data 的 pc端ui组件目录
-    "iview": path.resolve(SRC_RELATIVE_PATH, 'common/element/iview'),
-    // pc端 ui 主题色
-    "iview-theme": path.resolve(SRC_RELATIVE_PATH, 'common/element/iview-theme'),
-    // 具体实现组件, 按需引用时候用
-    "iview-ui": path.resolve(SRC_RELATIVE_PATH, 'common/element/iview/src/components'),
     // handle debugs for source code
     'redux': debugs.redux ?  path.resolve(SRC_RELATIVE_PATH, 'debug/redux') : 'redux',
-    'react-redux': debugs['react-redux'] ?  path.resolve(SRC_RELATIVE_PATH, 'debug/react-redux') : 'react-redux'
+    'react-redux': debugs['react-redux'] ?  path.resolve(SRC_RELATIVE_PATH, 'debug/react-redux') : 'react-redux',
+    'redux-thunk': debugs['redux-thunk'] ?  path.resolve(SRC_RELATIVE_PATH, 'debug/redux-thunk') : 'redux-thunk'
   }
 
 }

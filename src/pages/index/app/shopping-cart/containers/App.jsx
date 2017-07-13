@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 }
 
-
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(ShoppingActions, dispatch)
 })

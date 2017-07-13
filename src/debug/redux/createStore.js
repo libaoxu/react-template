@@ -46,7 +46,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
     if (typeof enhancer !== 'function') {
       throw new Error('Expected the enhancer to be a function.')
     }
-
+    // console.log(enhancer(createStore)(reducer, preloadedState))
     return enhancer(createStore)(reducer, preloadedState)
   }
 

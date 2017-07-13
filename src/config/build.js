@@ -83,8 +83,9 @@ const CONFIG = {
   PORT: 8082,
 
   debugs: {
-    'redux': false,
-    'react-redux': false
+    'redux': true,
+    'react-redux': true,
+    'redux-thunk': true
   }
 
 }

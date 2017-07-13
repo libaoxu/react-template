@@ -5,13 +5,14 @@ import todomvcReducers from '../app/todomvc/reducers'
 import shoppingCartReducers from '../app/shopping-cart/reducers'
 import todoListReducers from '../app/todo-list/reducers'
 
-import { createLogger } from 'redux-logger'
+// import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
+import { logger } from 'redux-thunk'
 
-const middlewareList = [ thunkMiddleware ];
+const middlewareList = [ logger, thunkMiddleware ];
 
 if (process.env.NODE_ENV !== 'production') {
-  // middlewareList.push(createLogger());
+  // middlewareList.push(createLogger())
 }
 
 const rootReducer = combineReducers({
@@ -19,7 +20,13 @@ const rootReducer = combineReducers({
   ...shoppingCartReducers,
   ...todoListReducers
 })
-
+// console.log(createStore(
+//   rootReducer,
+//   composeWithDevTools(
+//     applyMiddleware(...middlewareList)
+//   )
+//   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// ))
 export default createStore(
   rootReducer,
   composeWithDevTools(

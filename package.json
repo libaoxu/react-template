@@ -123,6 +123,23 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
+  "keywords": [
+    "cli",
+    "react-cli",
+    "react",
+    "react-redux",
+    "redux",
+    "reducer",
+    "state",
+    "predictable",
+    "functional",
+    "immutable",
+    "hot",
+    "live",
+    "replay",
+    "flux",
+    "elm"
+  ],
   "browserslist": [
     "> 1%",
     "last 5 versions",

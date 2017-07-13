@@ -26,8 +26,12 @@ export default function applyMiddleware(...middlewares) {
       getState: store.getState,
       dispatch: (action) => dispatch(action)
     }
+    // middlewareAPI
     chain = middlewares.map(middleware => middleware(middlewareAPI))
-    dispatch = compose(...chain)(store.dispatch)
+    // 这是一个新的 dispatch了, 是middlewareAPI中的dispatch 的一个封装, 其中包含各种middlewares, 
+    // 所有的 middlewares 经过 compose 进行一层层的过滤 f(g(h(...args)))
+    // args -> store.dispatch -> next
+    dispatch = compose(...chain)(store.dispatch, 'applyMiddleware next')
 
     return {
       ...store,

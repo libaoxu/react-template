@@ -82,7 +82,7 @@ html {
 }
 
 body{
-  font-size: 14px;
+  font-size: 28px; /*px*/
   min-height: 100%;
   font-family: "微软雅黑", Microsoft YaHei, sans-serif, Source Sans Pro, Helvetica, "Helvetica Neue", STHeiTi;
   /* 禁止选中文本（如无文本选中需求，此为必选项） 
