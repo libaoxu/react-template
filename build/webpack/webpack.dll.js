@@ -1,7 +1,9 @@
 var config = require('../config')
 const path = require('path')
 const webpack = require('webpack')
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production'
+const ENV = process.env.NODE_ENV || 'production'
+const vendorName = 'vendor' + (ENV === 'development' ? '_dev' : '')
+
 const vendors = [
   'react',
   'react-dom',
@@ -12,7 +14,7 @@ const vendors = [
 
 module.exports = {
   entry: {
-    vendor: vendors
+    [vendorName]: vendors
   },
   output: {
     path: path.resolve(config.dev.staticRoot, 'dll'),
@@ -25,14 +27,14 @@ module.exports = {
       name: '[name]_library',
       context: __dirname
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        'NODE_ENV': JSON.stringify(ENV)
       }
     })
   ]

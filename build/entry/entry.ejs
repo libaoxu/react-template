@@ -28,12 +28,11 @@
     </div>
 
     <% if (htmlWebpackPlugin.options.params.env === 'production') {%>
-      
+      <script src="<%- htmlWebpackPlugin.options.params.onlineConfig.assetsPublicPath %>static/dll/vendor.dll.js"></script>
     <%} else {%>
-      
+      <script src="<%- htmlWebpackPlugin.options.params.onlineConfig.assetsPublicPath %>static/dll/vendor_dev.dll.js"></script>
     <% } %>
 
-    <script src="<%- htmlWebpackPlugin.options.params.onlineConfig.assetsPublicPath %>static/dll/vendor.dll.js"></script>
 
     <% if (htmlWebpackPlugin.options.params.isWeixin) {%>
       <% if (htmlWebpackPlugin.options.params.env === 'production') {%>

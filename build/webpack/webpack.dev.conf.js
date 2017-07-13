@@ -60,7 +60,12 @@ module.exports = merge(baseWebpackConfig, {
           cacheDirectory: './webpack_cache/'
         }
       }]
-    }))
+    })),
+
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./dll/vendor_dev-manifest.json')
+    })
   ].concat(entry.htmlGenerator()),
 
 })

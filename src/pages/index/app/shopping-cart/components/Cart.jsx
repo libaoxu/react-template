@@ -18,8 +18,8 @@ const Cart  = ({ products, total, onCheckoutClicked, onDecreaseFromCartClicked, 
         />
         <button
           style={{
-            'background-color': 'rgba(255,73,73,.1)',
-            'border-color': 'rgba(255,73,73,.1)',
+            'backgroundColor': 'rgba(255,73,73,.1)',
+            'borderColor': 'rgba(255,73,73,.1)',
             'color': '#ff4949'
           }}
           className="dec"
@@ -40,8 +40,8 @@ const Cart  = ({ products, total, onCheckoutClicked, onDecreaseFromCartClicked, 
       <div>{nodes}</div>
       <p>Total: &#36;{total}</p>
       <button style={{
-        'border-color': '#13ce66',
-        'background-color': '#13ce66',
+        'borderColor': '#13ce66',
+        'backgroundColor': '#13ce66',
         'color': '#fff'
       }} 
         onClick={onCheckoutClicked}

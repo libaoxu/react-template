@@ -136,12 +136,7 @@ module.exports = {
     new HappyPack(getHappyPackConfig({
       id: 'less',
       loaders: ['css-loader', 'less-loader']
-    })),
-
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./dll/vendor-manifest.json')
-    })
+    }))
 
     // new webpack.LoaderOptionsPlugin({
     //   options: { 

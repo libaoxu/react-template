@@ -23,6 +23,7 @@
  */
 
 var path = require('path')
+var merge = require('webpack-merge')
 
 /**
  * src的相对根路径
@@ -31,12 +32,24 @@ var path = require('path')
 var SRC_PATH_STR = '../../src/';
 var SRC_RELATIVE_PATH = path.resolve(__dirname, SRC_PATH_STR)
 var isDev = process.env.NODE_ENV !== 'production'
+var debugAlias = {
+  redux: true,
+  'react-redux': true,
+  'redux-thunk': true
+}
+
+var getDebugAlias = debugs => Object.keys(debugs).reduce(function (map, key) {
+  if (debugs[key]) {
+    map[key] = path.resolve(SRC_RELATIVE_PATH, `debug/${key}`)
+  }
+  return map
+}, {})
 
 module.exports = function (srcConfig) {
   var srcAlias = srcConfig.ALIAS || {}
   var debugs = srcConfig.debugs
 
-  return {
+  return merge({
     'vue$': 'vue/dist/vue.esm.js',
     'src': path.resolve(SRC_RELATIVE_PATH),
     // 页面逻辑页
@@ -77,10 +90,7 @@ module.exports = function (srcConfig) {
     'bridge': path.resolve(SRC_RELATIVE_PATH, 'common/bridge'),
     // element ui框架
     "element": path.resolve(SRC_RELATIVE_PATH, 'common/element'),
+    
     // handle debugs for source code
-    'redux': debugs.redux ?  path.resolve(SRC_RELATIVE_PATH, 'debug/redux') : 'redux',
-    'react-redux': debugs['react-redux'] ?  path.resolve(SRC_RELATIVE_PATH, 'debug/react-redux') : 'react-redux',
-    'redux-thunk': debugs['redux-thunk'] ?  path.resolve(SRC_RELATIVE_PATH, 'debug/redux-thunk') : 'redux-thunk'
-  }
-
+  }, getDebugAlias(debugAlias))
 }

@@ -150,7 +150,12 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: path.resolve(config.build.assetsRoot, 'static'),
         ignore: ['.*']
       }
-    ])
+    ]),
+
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./dll/vendor-manifest.json')
+    })
   ].concat(entry.htmlGenerator())
 })
 
