@@ -24,8 +24,11 @@ export default function applyMiddleware(...middlewares) {
 
     const middlewareAPI = {
       getState: store.getState,
-      dispatch: (action) => dispatch(action)
+      dispatch: (action) => { 
+        return dispatch(action)
+      }
     }
+    
     // middlewareAPI
     chain = middlewares.map(middleware => middleware(middlewareAPI))
     // 这是一个新的 dispatch了, 是middlewareAPI中的dispatch 的一个封装, 其中包含各种middlewares, 

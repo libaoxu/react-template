@@ -5,14 +5,14 @@ import todomvcReducers from '../app/todomvc/reducers'
 import shoppingCartReducers from '../app/shopping-cart/reducers'
 import todoListReducers from '../app/todo-list/reducers'
 
-// import { createLogger } from 'redux-logger'
+import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import { logger } from 'redux-thunk'
 
-const middlewareList = [ logger, thunkMiddleware ];
+const middlewareList = [  thunkMiddleware ];
 
 if (process.env.NODE_ENV !== 'production') {
-  // middlewareList.push(createLogger())
+  middlewareList.push(createLogger())
 }
 
 const rootReducer = combineReducers({

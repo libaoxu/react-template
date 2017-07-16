@@ -12,9 +12,10 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    const { actions } = this.props
-
+    const { actions, getAllProducts } = this.props
     actions.getAllProducts()
+    // ShoppingActions.getAllProducts()
+    // getAllProducts()
   }
 
   render () {
@@ -30,12 +31,19 @@ class App extends React.Component {
   }
 }
 
+// console.log('bindActionCreators(ShoppingActions, dispatch): ', bindActionCreators(ShoppingActions))
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(ShoppingActions, dispatch)
 })
 
+const _connect = connect
 // export default App
-export default connect(
+export default _connect(
   null,
   mapDispatchToProps
+  // { ...ShoppingActions }
 )(App)
+// export default _connect(
+//   null,
+//   mapDispatchToProps
+// )(App)

@@ -76,15 +76,20 @@ const visibleIds = (state = initialState.visibleIds, action) => {
 //   visibleIds
 // }))
 
-export default function productsReducer (state = initialState, action) {
-  switch (action.type) {
-    default: 
-      return combineReducers({
-        byId,
-        visibleIds
-      })(state, action)
-  }
-}
+// export default function productsReducer (state = initialState, action) {
+//   switch (action.type) {
+//     default: 
+//       return combineReducers({
+//         byId,
+//         visibleIds
+//       })(state, action)
+//   }
+// }
+
+export default combineReducers({
+  byId,
+  visibleIds
+})
 
 // export default function productsReducer (state = {}, action) {
 //   console.log('products combineReducers: ', state, action)

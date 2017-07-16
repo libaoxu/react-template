@@ -33,7 +33,11 @@ export const logger = ({ dispatch, getState }) => {
   return (next, loggerNext) => {
     // debugger
     return  (action, loggerAction) => {
-      // debugger
+      debugger
+      // if (typeof action === 'function') {
+      //   next(action, getState, 'loogerAction')
+      // }
+      console.log('[logger]: ')
       return next(action, 'loggerAction')
     }
   }

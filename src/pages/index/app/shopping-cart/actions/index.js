@@ -1,10 +1,17 @@
 import shop from '../api/shop'
 import * as types from '../constants/ActionTypes'
 
-const receiveProducts = products => ({
-  type: types.RECEIVE_PRODUCTS,
-  products
-})
+const makeActionCreator = (type, ...argNames) => (...args) => argNames.reduce((action, argName, index) => {
+  // debugger
+  action[argNames[index]] = args[index]
+  return action
+}, { type })
+
+// const receiveProducts = products => ({
+//   type: types.RECEIVE_PRODUCTS,
+//   products
+// })
+const receiveProducts = makeActionCreator(types.RECEIVE_PRODUCTS, 'products')
 
 // 异步的 Redux Thunk来解决的这个问题
 // 如果返回的是函数, 那么就会调用这个函数, 传递过去dispatch 这个方法, 直到这个方法被执行
@@ -32,10 +39,11 @@ export const getAllProducts = () => {
 //   ]
 // })
 
-const addToCartUnsafe = productId => ({
-  type: types.ADD_TO_CART,
-  productId
-})
+const addToCartUnsafe = makeActionCreator(types.ADD_TO_CART, 'productId')
+// productId => ({
+//   type: types.ADD_TO_CART,
+//   productId
+// })
 
 export const addToCart = productId => (dispatch, getState) => {
   // debugger
