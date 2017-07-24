@@ -1,5 +1,5 @@
 import { VisibilityFilters, DELETE_TODO, SET_VISIBILITY_FILTER, ADD_TODO, COMPLETE_TODO, TOGGLE_TODO } from '../actions'
-
+import undoable from './undoable'
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
   todoList: [{
@@ -28,7 +28,11 @@ function todoList (state = initialState.todoList, action) {
     case TOGGLE_TODO: 
       return state.map((todo, index) => {
         if (index === action.index) {
-          todo.completed = !todo.completed
+          // 不能整一个不纯的, 看到了吧
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
         }
         return todo
       })
@@ -36,9 +40,10 @@ function todoList (state = initialState.todoList, action) {
     case COMPLETE_TODO:
       return [
         ...state.slice(0, action.index),
-        Object.assign({}, state[action.index], {
+        ...{
+          ...state[action.index],
           completed: true
-        }),
+        },
         ...state.slice(action.index + 1)
       ]
 
@@ -65,7 +70,7 @@ function visibilityFilter (state = VisibilityFilters.SHOW_ALL, action) {
 
 export default {
   visibilityFilter,
-  todoList
+  todoList: undoable(todoList)
 }
 
 // export default function todoApp (state = initialState, action) {

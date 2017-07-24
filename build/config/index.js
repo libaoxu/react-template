@@ -14,7 +14,7 @@ module.exports = {
     // index: path.resolve(__dirname, '../../dist/prod/index.html'),
     assetsRoot: path.resolve(__dirname, '../../dist/prod'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: srcConfig.PROD.BUILD.assetsPublicPath,
     productionSourceMap: false,
     // build:w执行 时候出现的目录, 方便watch 和 map local使用
     // watchingIndex: path.resolve(__dirname, '../../dist/dev/index.html'),

@@ -5,7 +5,14 @@ import ProductsContainer from './ProductsContainer'
 import CartContainer from './CartContainer'
 import * as ShoppingActions from '../actions'
 
-class App extends React.Component {
+
+// console.log('bindActionCreators(ShoppingActions, dispatch): ', bindActionCreators(ShoppingActions))
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(ShoppingActions, dispatch)
+})
+
+@connect(null, mapDispatchToProps)
+export default class App extends React.Component {
   constructor (props) {
     // console.log(props)
     super(props)
@@ -31,19 +38,17 @@ class App extends React.Component {
   }
 }
 
-// console.log('bindActionCreators(ShoppingActions, dispatch): ', bindActionCreators(ShoppingActions))
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(ShoppingActions, dispatch)
-})
-
-const _connect = connect
+// const _connect = connect
 // export default App
-export default _connect(
-  null,
-  mapDispatchToProps
-  // { ...ShoppingActions }
-)(App)
+// export default _connect(
+//   null,
+//   mapDispatchToProps
+//   // { ...ShoppingActions }
+// )(App)
 // export default _connect(
 //   null,
 //   mapDispatchToProps
 // )(App)
+
+
+// export default App

@@ -6,6 +6,8 @@
   ],
   "plugins": [
     "transform-runtime",
+    "transform-decorators-legacy",
+    "transform-class-properties",
     ["import", [{ "style": "css", "libraryName": "antd-mobile" }]]
   ],
   "comments": false,

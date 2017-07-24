@@ -13,7 +13,7 @@ const PROD_CONF = {
     /**
      * 资源文件根路径
      */
-    assetsPublicPath: '/'
+    assetsPublicPath: '/react/'
   }
 }
 

@@ -12,7 +12,7 @@ import { logger } from 'redux-thunk'
 const middlewareList = [  thunkMiddleware ];
 
 if (process.env.NODE_ENV !== 'production') {
-  middlewareList.push(createLogger())
+  // middlewareList.push(createLogger())
 }
 
 const rootReducer = combineReducers({

@@ -6,6 +6,8 @@ export const COMPLETE_TODO = 'COMPLETE_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TOTO'
 export const DELETE_TODO = 'DELETE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+export const UNDO = 'UNDO'
+export const REDO = 'REDO'
 
 /**
  * 其他常亮
@@ -29,3 +31,6 @@ export const toggleTodo = index => ({ type: TOGGLE_TODO, index })
 export const setVisibilityFilter = filter => ({ type: SET_VISIBILITY_FILTER, filter })
 export const completeTodo = index => ({ type: COMPLETE_TODO, index })
 export const deleteTodo = index => ({ type: DELETE_TODO, index })
+
+export const undo = () => ({type: UNDO})
+export const redo = () => ({type: REDO})

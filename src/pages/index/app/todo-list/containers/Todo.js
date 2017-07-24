@@ -6,7 +6,7 @@ export default class Todo extends Component {
       <li
         onClick={this.props.onClick} >
         <span style={{ 
-          'padding-right': '100px', 
+          'paddingRight': '100px', 
           ...this.props.completed && { 
             textDecoration: 'line-through',
             cursor: 'default',
