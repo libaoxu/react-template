@@ -1,6 +1,6 @@
-# react-libaoxu-cli
+# react-template
 
-> react快速启动脚手架
+> react项目模板
 
 ## 安装git
 
@@ -24,7 +24,7 @@ Mac用户可以看下网络教程。
 clone代码
 
 ``` git
-git clone git@github.com:libaoxu/react-cli.git
+git clone git@github.com:libaoxu/react-template.git
 
 ```
 ## 安装node
